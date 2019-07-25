@@ -116,7 +116,7 @@ public class Main {
 </settings>
 ```
 
-#### mapper.xml 映射
+#### mapper.xml 映射文件
 ```xml
 <mapper namespace="com.study.mapper.UserMapper">
     <!-- 开启二级缓存 -->
