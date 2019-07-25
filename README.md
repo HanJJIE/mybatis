@@ -106,4 +106,30 @@ public class Main {
 
 ### 二级缓存
 - 二级缓存是 Mapper 级别的缓存，多个 SqlSession 去调用同一个 Mapper 中的 SQL 语句时，它们可以公用二级缓存，二级缓存是跨域 Session 对象的
-- 二级缓存的区域是
+- 二级缓存的区域是根据 mapper.xml 中 namespace，如果两个不同的 mapper.xml 使用了同一个 namespace，那么它们的二级缓存是共享的
+
+### 二级缓存的开启
+#### MyBatis 配置文件
+```xml
+<settings>
+    <setting name="cacheEnabled" value="true"/>
+</settings>
+```
+
+#### mapper.xml 映射
+```xml
+<mapper namespace="com.study.mapper.UserMapper">
+    <!-- 开启二级缓存 -->
+    <cache></cache>
+    
+    ... slq ...
+    
+</mapper>
+```
+
+#### 将缓存取出需要进行反序列化，所以 POJO 类需要实现序列化接口
+```java
+public class POJO implements Serializable {
+//    ...        
+} 
+```

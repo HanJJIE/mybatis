@@ -1,6 +1,8 @@
 package com.study.pojo;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 
     private Long user_id;
     private String user_name;
