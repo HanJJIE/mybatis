@@ -24,5 +24,8 @@ public class Main {
         User user = sqlSession.selectOne("com.study.mapper.UserMapper.selectUser", 1);
 
         System.out.println(user);
+
+//        释放资源
+        sqlSession.close();
     }
 }
